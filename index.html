@@ -8,235 +8,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#f7f3ea; --surface:#fffdf8; --clay:#ebe2d0; --line:#ddd2bc;
-  --ink:#1d2325; --muted:#5d6563; --cypress:#1d4442; --cypress-2:#16302f;
-  --gold:#b98222; --gold-soft:#f3e3bf; --es:#8a3b2a;
-  --r:14px; --max:1160px;
-  --display:"Fraunces",Georgia,"Times New Roman",serif;
-  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
-a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
-h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
-h3{font-size:1.2rem}
-p{margin:0}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
-.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-section{padding:72px 0}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
-.sec-head p{color:var(--muted);max-width:52ch;margin-top:10px}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:10px 14px;z-index:99;border-radius:8px}
-
-/* utility bar */
-.util{background:var(--cypress-2);color:#dfe8e4;font-size:.82rem}
-.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:38px;flex-wrap:wrap}
-.util a{text-decoration:none}.util a:hover{text-decoration:underline}
-.concept{opacity:.75}
-.lang{display:inline-flex;border:1px solid rgba(255,255,255,.3);border-radius:999px;overflow:hidden}
-.lang button{background:none;border:0;color:inherit;font:600 .78rem var(--body);padding:5px 12px;cursor:pointer}
-.lang button[aria-pressed="true"]{background:#fff;color:var(--cypress-2)}
-
-/* header */
-header.site{position:sticky;top:0;z-index:20;background:rgba(247,243,234,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header.site .wrap{display:flex;align-items:center;gap:22px;min-height:68px}
-.brand{text-decoration:none;display:flex;align-items:center;gap:12px;margin-right:auto}
-.mark{width:38px;height:38px;flex:none}
-.brand b{font:500 1.18rem/1.1 var(--display);display:block}
-.brand span{font-size:.74rem;color:var(--muted);letter-spacing:.04em}
-nav.main{display:flex;gap:4px}
-nav.main a{text-decoration:none;font-weight:600;font-size:.9rem;padding:9px 11px;border-radius:8px}
-nav.main a:hover{background:var(--clay)}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:.92rem;padding:11px 18px;border-radius:999px;border:1.5px solid var(--cypress);background:var(--cypress);color:#fff;cursor:pointer}
-.btn:hover{background:var(--cypress-2)}
-.btn.ghost{background:transparent;color:var(--cypress)}
-.btn.ghost:hover{background:var(--clay)}
-.btn.gold{background:var(--gold);border-color:var(--gold);color:#1d1503}
-.menu-btn{display:none}
-
-/* hero */
-.hero{position:relative;isolation:isolate;overflow:hidden;color:#fff;background:#16302f;padding:0}
-.hero-media{position:absolute;inset:0;z-index:-2}
-.hero-media svg,.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block}
-.hero-media img{opacity:0;transition:opacity 1.4s ease}
-.hero-media img.on{opacity:1}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
-  linear-gradient(90deg,rgba(14,30,30,.88) 0%,rgba(14,30,30,.62) 42%,rgba(14,30,30,.18) 75%),
-  linear-gradient(0deg,rgba(14,30,30,.55),transparent 40%)}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;min-height:min(78vh,720px);padding-top:96px;padding-bottom:56px}
-.hero .eyebrow{color:#f0cf85}
-.hero h1{font-size:clamp(2.6rem,6vw,4.8rem);margin:14px 0 18px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
-.hero h1 em{font-style:italic;color:#f0cf85}
-.hero .lede{font-size:1.12rem;color:#eef2ef;max-width:46ch}
-.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-.hero .cta .btn{background:#fff;border-color:#fff;color:var(--cypress-2)}
-.hero .cta .btn.ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.6);backdrop-filter:blur(4px)}
-.hero .cta .btn.ghost:hover{background:rgba(255,255,255,.2)}
-.hero-cap{position:absolute;left:22px;bottom:12px;font-size:.74rem;color:rgba(255,255,255,.7)}
-.next{background:rgba(22,52,51,.94);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);color:#eef4f1;border-radius:22px;padding:26px;box-shadow:0 24px 50px -28px rgba(22,48,47,.7)}
-.next .eyebrow{color:#e8c77c}
-.chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{font:600 .8rem var(--body);padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;color:inherit;cursor:pointer}
-.chip[aria-pressed="true"]{background:#fff;color:var(--cypress-2);border-color:#fff}
-.next-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-.next-time{font:500 clamp(2.6rem,6vw,3.6rem)/1 var(--display);margin:4px 0 6px}
-.next-when{font-weight:600;color:#e8c77c}
-.next-where{margin-top:10px;font-size:1.02rem}
-.next-where small{display:block;opacity:.75}
-.next-actions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.next-actions .btn{background:#fff;color:var(--cypress-2);border-color:#fff;padding:9px 15px;font-size:.86rem}
-.next-actions .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
-.upnext{list-style:none;margin:0;padding:14px 0 0;border-top:1px solid rgba(255,255,255,.18);display:grid;gap:8px;font-size:.92rem}
-.upnext li{display:flex;justify-content:space-between;gap:12px}
-.upnext span:last-child{opacity:.78;text-align:right}
-.tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;background:#f4dfd8;color:var(--es);margin-left:6px;vertical-align:middle}
-.tag.sp{background:var(--gold-soft);color:#6b4a0d}
-
-/* tasks */
-.tasks{background:var(--surface);border-block:1px solid var(--line);padding:40px 0}
-.task-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
-.task{display:flex;gap:12px;align-items:center;text-decoration:none;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:16px}
-.task:hover{border-color:var(--cypress);transform:translateY(-1px)}
-.task i{flex:none;width:38px;height:38px;border-radius:10px;background:var(--gold-soft);display:grid;place-items:center;font-style:normal;font-size:1.1rem}
-.task b{display:block;font-size:.96rem}
-.task small{color:var(--muted)}
-
-/* schedule */
-.tabs{display:flex;gap:6px;flex-wrap:wrap}
-.tabs .chip{border-color:var(--line);color:var(--ink)}
-.tabs .chip[aria-pressed="true"]{background:var(--cypress);border-color:var(--cypress);color:#fff}
-.sched{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px}
-.daygrp{padding:16px 0;border-bottom:1px solid var(--line)}
-.daygrp:first-child{padding-top:0}.daygrp:last-child{border:0;padding-bottom:0}
-.daygrp h3{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.today{font:700 .68rem var(--body);letter-spacing:.08em;text-transform:uppercase;background:var(--gold);color:#1d1503;border-radius:5px;padding:2px 7px}
-.row{display:grid;grid-template-columns:96px 1fr auto;gap:10px;padding:7px 0;align-items:baseline}
-.row time{font-weight:700;font-variant-numeric:tabular-nums}
-.row .w{color:var(--muted);font-size:.9rem}
-.empty{color:var(--muted);font-style:italic}
-.side{display:grid;gap:20px;align-content:start}
-.side h3{margin-bottom:12px}
-.side dl{margin:0;display:grid;gap:10px}
-.side dt{font-weight:700}.side dd{margin:0;color:var(--muted);font-size:.93rem}
-.holy{margin-top:20px}
-.holy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
-.hd{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px}
-.hd .date{font:500 1.5rem/1 var(--display);color:var(--cypress)}
-.hd b{display:block;margin:6px 0 8px;font-size:.95rem}
-.hd ul{list-style:none;margin:0;padding:0;font-size:.86rem;color:#3c4543;display:grid;gap:3px}
-
-/* week */
-.band{background:var(--clay)}
-.week{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
-.ev{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
-.ev:last-of-type{border:0}
-.ev .d{text-align:center;background:var(--bg);border-radius:10px;padding:8px 0;font:500 1.5rem/1 var(--display)}
-.ev .d small{display:block;font:700 .66rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
-.ev small.t{color:var(--muted)}
-.pubs{display:grid;gap:12px}
-.pub{display:flex;justify-content:space-between;align-items:center;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
-.pub:hover{border-color:var(--cypress)}
-.pub small{display:block;color:var(--muted)}
-.arrow{font-size:1.3rem;color:var(--cypress)}
-
-/* grids */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.tile{text-decoration:none;display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.tile:hover{border-color:var(--cypress)}
-.tile p{color:var(--muted);font-size:.93rem;margin:8px 0 14px}
-.tile .go{font-weight:700;font-size:.88rem;color:var(--cypress)}
-.search{width:min(340px,100%);font:500 1rem var(--body);padding:12px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface)}
-.min-list{display:flex;flex-wrap:wrap;gap:8px}
-.min-list a{text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-weight:600;font-size:.9rem}
-.min-list a:hover{background:var(--cypress);color:#fff;border-color:var(--cypress)}
-.help{background:var(--cypress);color:#eef4f1}
-.help .eyebrow{color:#e8c77c}
-.help .sec-head p{color:#c9d8d3}
-.help .tile{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)}
-.help .tile:hover{background:rgba(255,255,255,.13)}
-.help .tile p{color:#c9d8d3}.help .tile .go{color:#e8c77c}
-.loc{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.loc .card{overflow:hidden}
-.loc .ph{display:block;width:calc(100% + 48px);margin:-24px -24px 20px;aspect-ratio:16/9;object-fit:cover;background:var(--clay)}
-.loc .card h3{font-size:1.5rem}
-.loc address{font-style:normal;color:var(--muted);margin:8px 0 14px}
-.loc ul{margin:0 0 18px;padding-left:18px;font-size:.93rem}
-
-footer{background:var(--cypress-2);color:#cfdcd7;padding:48px 0 96px;font-size:.92rem}
-footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
-footer h3{color:#fff;margin-bottom:12px;font-size:1.05rem}
-footer a{text-decoration:none;display:block;padding:3px 0}footer a:hover{color:#fff;text-decoration:underline}
-footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:18px;font-size:.8rem;opacity:.75}
-
-.dock{display:none}
-@media (max-width:980px){
-  nav.main{display:none;position:absolute;top:68px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:10px 22px 18px}
-  nav.main.open{display:flex}
-  .menu-btn{display:inline-flex}
-  .hero .wrap,.sched,.week,.loc{grid-template-columns:1fr}
-  .hero .wrap{min-height:0;padding-top:120px;padding-bottom:40px}
-  .hero::after{background:linear-gradient(0deg,rgba(14,30,30,.92) 30%,rgba(14,30,30,.45) 100%)}
-  .task-grid,.grid4,.holy-grid{grid-template-columns:repeat(2,1fr)}
-  .grid3{grid-template-columns:1fr 1fr}
-  footer .wrap{grid-template-columns:1fr}
-}
-@media (max-width:620px){
-  section{padding:52px 0}
-  .task-grid,.grid3,.grid4,.holy-grid{grid-template-columns:1fr}
-  header.site .give{display:none}
-  .concept{display:none}
-  .dock{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
-  .dock a{text-decoration:none;text-align:center;padding:9px 4px 8px;font-size:.72rem;font-weight:700}
-  .dock a span{display:block;font-size:1.15rem;line-height:1.2}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-<div class="util">
-  <div class="wrap">
-    <span class="concept">Redesign concept · not the official parish site</span>
-    <span><a href="tel:8564670037">856-467-0037</a> &nbsp;·&nbsp; <a href="mailto:info@stclarenj.org">info@stclarenj.org</a></span>
-    <span class="lang" role="group" aria-label="Language">
-      <button id="en" aria-pressed="true">English</button><button id="es" aria-pressed="false">Español</button>
-    </span>
-  </div>
-</div>
-
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="St. Clare of Assisi Parish home">
-      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" fill="#1d4442"/>
-        <g stroke="#e8c77c" stroke-width="1.6" stroke-linecap="round">
-          <path d="M20 5v5M20 30v5M5 20h5M30 20h5M9.4 9.4l3.5 3.5M27.1 27.1l3.5 3.5M30.6 9.4l-3.5 3.5M12.9 27.1l-3.5 3.5"/>
-        </g>
-        <circle cx="20" cy="20" r="6.5" fill="#fffdf8"/>
-        <path d="M20 16.2v7.6M16.9 19h6.2" stroke="#1d4442" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
-      <span><b>St. Clare of Assisi Parish</b><span>Gibbstown &amp; Swedesboro, NJ</span></span>
-    </a>
-    <nav class="main" id="nav" aria-label="Main">
-      <a href="#mass" data-es="Misas y Confesión">Mass &amp; Confession</a>
-      <a href="#sacraments" data-es="Sacramentos">Sacraments</a>
-      <a href="#families" data-es="Familias">Families</a>
-      <a href="#ministries" data-es="Ministerios">Ministries</a>
-      <a href="#help" data-es="Ayuda">Get Help</a>
-      <a href="#visit" data-es="Visítenos">Visit</a>
-    </nav>
-    <a class="btn gold give" href="https://stclarenj.org/online-giving" data-es="Donar">Give</a>
-    <button class="btn ghost menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
-  </div>
-</header>
+<div class="util"><div class="wrap">
+  <span class="concept">Redesign concept · not the official parish site</span>
+  <span><a href="tel:8564670037">856-467-0037</a> &nbsp;·&nbsp; <a href="mailto:info@stclarenj.org">info@stclarenj.org</a></span>
+  <span class="lang" role="group" aria-label="Language"><button id="en" aria-pressed="true">English</button><button id="es" aria-pressed="false">Español</button></span>
+</div></div>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="St. Clare of Assisi Parish home">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#1d4442"/><g stroke="#e8c77c" stroke-width="1.6" stroke-linecap="round"><path d="M20 5v5M20 30v5M5 20h5M30 20h5M9.4 9.4l3.5 3.5M27.1 27.1l3.5 3.5M30.6 9.4l-3.5 3.5M12.9 27.1l-3.5 3.5"/></g><circle cx="20" cy="20" r="6.5" fill="#fffdf8"/><path d="M20 16.2v7.6M16.9 19h6.2" stroke="#1d4442" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span><b>St. Clare of Assisi Parish</b><span>Gibbstown &amp; Swedesboro, NJ</span></span>
+  </a>
+  <nav class="main" id="nav" aria-label="Main"><a href="mass-times.html" data-es="Misas y Confesión">Mass &amp; Confession</a><a href="sacraments.html" data-es="Sacramentos">Sacraments</a><a href="faith-formation.html" data-es="Formación de Fe">Faith Formation</a><a href="ministries.html" data-es="Ministerios">Ministries</a><a href="get-help.html" data-es="Ayuda">Get Help</a><a href="about.html" data-es="La Parroquia">About</a></nav>
+  <a class="btn gold give" href="give.html" data-es="Donar">Give</a>
+  <button class="btn ghost menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+</div></header>
 
 <main id="main">
 <div id="top"></div>
@@ -270,9 +59,9 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
       <h1 data-es="Una parroquia. Dos iglesias. <em>Todos son bienvenidos.</em>">One parish. Two churches. <em>Everyone welcome.</em></h1>
       <p class="lede" data-es="Somos una comunidad de fe que sirve a Swedesboro, Gibbstown y Paulsboro. Si está pensando en mudarse a nuestra área, lo invitamos a hacer de St. Clare su hogar parroquial.">We are a community of faith serving Swedesboro, Gibbstown and Paulsboro. If you are new to the area or simply looking for a church, we would love for St. Clare's to be your parish home.</p>
       <div class="cta">
-        <a class="btn" href="https://stclarefamilyfaithformation.org/parish-registration-form/" data-es="Únase a la parroquia">Join our parish</a>
-        <a class="btn ghost" href="#mass" data-es="Horario completo">Full schedule</a>
-        <a class="btn ghost" href="https://stclarenj.org/live-stream" data-es="Misa en vivo">Watch live</a>
+        <a class="btn" href="register.html" data-es="Únase a la parroquia">Join our parish</a>
+        <a class="btn ghost" href="mass-times.html" data-es="Horario completo">Full schedule</a>
+        <a class="btn ghost" href="live-stream.html" data-es="Misa en vivo">Watch live</a>
       </div>
     </div>
 
@@ -296,14 +85,14 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
   <div class="wrap">
     <h2 style="font-size:1.5rem" data-es="¿Qué necesita hoy?">What do you need today?</h2>
     <div class="task-grid">
-      <a class="task" href="https://stclarenj.org/bulletins"><i>📰</i><span><b data-es="Boletín semanal">This week's bulletin</b><small data-es="Leer o descargar">Read or download</small></span></a>
-      <a class="task" href="https://stclarefamilyfaithformation.org/parish-registration-form/"><i>✍️</i><span><b data-es="Registrarse">Register as a parishioner</b><small data-es="Formulario en línea">Online form, 5 minutes</small></span></a>
-      <a class="task" href="https://stclarenj.org/baptism"><i>💧</i><span><b data-es="Bautizar a un niño">Baptize a child</b><small data-es="Requisitos y fechas">Requirements &amp; dates</small></span></a>
-      <a class="task" href="https://stclarenj.org/marriage"><i>💍</i><span><b data-es="Casarse">Get married</b><small data-es="Comience aquí">Start the process</small></span></a>
-      <a class="task" href="https://stclarenj.org/anointing-of-the-sick"><i>🕊️</i><span><b data-es="Pedir un sacerdote">Request a priest</b><small data-es="Unción de los enfermos">Anointing of the sick</small></span></a>
-      <a class="task" href="https://stclarenj.org/facilities-request-1"><i>🏛️</i><span><b data-es="Reservar un salón">Reserve a room</b><small data-es="Solicitud de instalaciones">Facilities request</small></span></a>
-      <a class="task" href="https://stclarenj.org/st-clare-volunteer"><i>🤝</i><span><b data-es="Ser voluntario">Volunteer</b><small data-es="Encuentre su lugar">Find where you fit</small></span></a>
-      <a class="task" href="https://stclarenj.org/staff"><i>☎️</i><span><b data-es="Contactar al personal">Contact the staff</b><small data-es="Equipo parroquial">Parish team directory</small></span></a>
+      <a class="task" href="bulletins.html"><i>📰</i><span><b data-es="Boletín semanal">This week's bulletin</b><small data-es="Leer o descargar">Read or download</small></span></a>
+      <a class="task" href="register.html"><i>✍️</i><span><b data-es="Registrarse">Register as a parishioner</b><small data-es="Formulario en línea">Online form, 5 minutes</small></span></a>
+      <a class="task" href="baptism.html"><i>💧</i><span><b data-es="Bautizar a un niño">Baptize a child</b><small data-es="Requisitos y fechas">Requirements &amp; dates</small></span></a>
+      <a class="task" href="marriage.html"><i>💍</i><span><b data-es="Casarse">Get married</b><small data-es="Comience aquí">Start the process</small></span></a>
+      <a class="task" href="anointing-of-the-sick.html"><i>🕊️</i><span><b data-es="Pedir un sacerdote">Request a priest</b><small data-es="Unción de los enfermos">Anointing of the sick</small></span></a>
+      <a class="task" href="facilities-request.html"><i>🏛️</i><span><b data-es="Reservar un salón">Reserve a room</b><small data-es="Solicitud de instalaciones">Facilities request</small></span></a>
+      <a class="task" href="volunteer.html"><i>🤝</i><span><b data-es="Ser voluntario">Volunteer</b><small data-es="Encuentre su lugar">Find where you fit</small></span></a>
+      <a class="task" href="staff.html"><i>☎️</i><span><b data-es="Contactar al personal">Contact the staff</b><small data-es="Equipo parroquial">Parish team directory</small></span></a>
     </div>
   </div>
 </div>
@@ -337,7 +126,7 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
           <h3 data-es="Adoración Eucarística">Eucharistic Adoration</h3>
           <dl><div><dt data-es="Viernes · 9:00 AM – 1:00 PM">Friday · 9:00 AM – 1:00 PM</dt><dd>St. Joseph Church, Swedesboro</dd></div></dl>
         </div>
-        <a class="pub" href="https://stclarenj.org/live-stream"><span><b data-es="Misa en vivo">Can't be here in person?</b><small data-es="Ver la transmisión">Watch the live stream</small></span><span class="arrow">→</span></a>
+        <a class="pub" href="live-stream.html"><span><b data-es="Misa en vivo">Can't be here in person?</b><small data-es="Ver la transmisión">Watch the live stream</small></span><span class="arrow">→</span></a>
       </div>
     </div>
 
@@ -358,20 +147,20 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow" data-es="Vida parroquial">Parish life</p><h2 data-es="Esta semana">This week at St. Clare</h2></div>
-      <a class="btn ghost" href="https://stclarenj.org/calendar" data-es="Calendario completo">Full calendar</a>
+      <a class="btn ghost" href="events.html" data-es="Calendario completo">Full calendar</a>
     </div>
     <div class="week">
       <div class="card">
         <div class="ev"><div class="d"><small>Thu</small>26</div><div><b data-es="Misa de Acción de Gracias">Thanksgiving Mass</b><br><small class="t">8:30 AM English · 10:30 AM Español · St. Joseph, Swedesboro</small></div></div>
         <div class="ev"><div class="d"><small>Thu</small>26</div><div><b data-es="Oficina parroquial cerrada">Parish office closed</b><br><small class="t" data-es="Jueves y viernes">Thursday and Friday</small></div></div>
-        <div class="ev"><div class="d"><small>Sun</small>29</div><div><b data-es="Primer Domingo de Adviento">First Sunday of Advent</b><br><small class="t"><a href="https://stclarenj.org/advent" data-es="Vea todo lo de Adviento 2026 →">See everything for Advent 2026 →</a></small></div></div>
-        <div style="margin-top:14px"><a class="btn ghost" href="https://stclarenj.org/events" data-es="Más eventos">More events</a></div>
+        <div class="ev"><div class="d"><small>Sun</small>29</div><div><b data-es="Primer Domingo de Adviento">First Sunday of Advent</b><br><small class="t"><a href="advent.html" data-es="Vea todo lo de Adviento 2026 →">See everything for Advent 2026 →</a></small></div></div>
+        <div style="margin-top:14px"><a class="btn ghost" href="events.html" data-es="Más eventos">More events</a></div>
       </div>
       <div class="pubs">
-        <a class="pub" href="https://stclarenj.org/bulletins"><span><b data-es="Boletín dominical">Sunday Bulletin</b><small data-es="Edición actual y archivo">Current issue and archive</small></span><span class="arrow">→</span></a>
-        <a class="pub" href="https://stclarenj.org/newsletters"><span><b data-es="Boletines informativos">Newsletters</b><small data-es="Reciba noticias por correo">Parish news in your inbox</small></span><span class="arrow">→</span></a>
-        <a class="pub" href="https://stclarenj.org/photoalbums"><span><b data-es="Álbumes de fotos">Photo albums</b><small data-es="Momentos de la parroquia">Moments from around the parish</small></span><span class="arrow">→</span></a>
-        <a class="pub" href="https://www.instagram.com/stclarenj/"><span><b>@stclarenj</b><small>Instagram · Facebook</small></span><span class="arrow">→</span></a>
+        <a class="pub" href="bulletins.html"><span><b data-es="Boletín dominical">Sunday Bulletin</b><small data-es="Edición actual y archivo">Current issue and archive</small></span><span class="arrow">→</span></a>
+        <a class="pub" href="newsletters.html"><span><b data-es="Boletines informativos">Newsletters</b><small data-es="Reciba noticias por correo">Parish news in your inbox</small></span><span class="arrow">→</span></a>
+        <a class="pub" href="photo-albums.html"><span><b data-es="Álbumes de fotos">Photo albums</b><small data-es="Momentos de la parroquia">Moments from around the parish</small></span><span class="arrow">→</span></a>
+        <a class="pub" href="events.html"><span><b data-es="Todos los eventos">All events</b><small data-es="Las próximas semanas">The next few weeks at a glance</small></span><span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -384,12 +173,12 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
       <p data-es="¿Preguntas? Oficina de Preparación Sacramental: 856-467-0037 ext. 108.">Questions? Office of Sacramental Preparation: 856-467-0037 ext. 108.</p></div>
     </div>
     <div class="grid3">
-      <a class="tile" href="https://stclarenj.org/baptism"><h3 data-es="Bautismo">Baptism</h3><p data-es="Para bebés, niños y adultos. Incluye preguntas frecuentes.">For infants, children and adults. Includes a full FAQ for parents and godparents.</p><span class="go" data-es="Comenzar →">Start here →</span></a>
-      <a class="tile" href="https://stclarenj.org/first-reconciliation"><h3 data-es="Primera Reconciliación y Eucaristía">First Reconciliation &amp; Eucharist</h3><p data-es="La preparación comienza en el Nivel 1 y continúa en el Nivel 2.">Preparation begins in Level 1 and continues through Level 2.</p><span class="go" data-es="Requisitos →">Requirements →</span></a>
-      <a class="tile" href="https://stclarenj.org/sacraments"><h3 data-es="Confirmación">Confirmation</h3><p data-es="La preparación va del Nivel 6 al 8. Grupos 2027 y 2028.">Preparation runs Level 6 through Level 8. Classes of 2027 and 2028.</p><span class="go" data-es="Encuentre su grupo →">Find your class →</span></a>
-      <a class="tile" href="https://stclarenj.org/marriage"><h3 data-es="Matrimonio">Marriage</h3><p data-es="Comuníquese con la parroquia antes de fijar una fecha.">Contact the parish before you set a date. Pre-nuptial paperwork is online.</p><span class="go" data-es="Planear su boda →">Plan your wedding →</span></a>
-      <a class="tile" href="https://stclarenj.org/anointing-of-the-sick"><h3 data-es="Unción de los Enfermos">Anointing of the Sick</h3><p data-es="Para enfermedad grave, cirugía o edad avanzada.">For serious illness, surgery or advanced age. Call the office any time.</p><span class="go" data-es="Solicitar una visita →">Request a visit →</span></a>
-      <a class="tile" href="https://stclarenj.org/ocia-teens"><h3 data-es="Hacerse católico (OCIA)">Becoming Catholic (OCIA)</h3><p data-es="Para adultos y adolescentes que exploran la fe.">For adults and teens exploring the faith or completing their sacraments.</p><span class="go" data-es="Más información →">Learn more →</span></a>
+      <a class="tile" href="baptism.html"><h3 data-es="Bautismo">Baptism</h3><p data-es="Para bebés, niños y adultos. Incluye preguntas frecuentes.">For infants, children and adults. Includes a full FAQ for parents and godparents.</p><span class="go" data-es="Comenzar →">Start here →</span></a>
+      <a class="tile" href="first-reconciliation.html"><h3 data-es="Primera Reconciliación y Eucaristía">First Reconciliation &amp; Eucharist</h3><p data-es="La preparación comienza en el Nivel 1 y continúa en el Nivel 2.">Preparation begins in Level 1 and continues through Level 2.</p><span class="go" data-es="Requisitos →">Requirements →</span></a>
+      <a class="tile" href="confirmation.html"><h3 data-es="Confirmación">Confirmation</h3><p data-es="La preparación va del Nivel 6 al 8. Grupos 2027 y 2028.">Preparation runs Level 6 through Level 8. Classes of 2027 and 2028.</p><span class="go" data-es="Encuentre su grupo →">Find your class →</span></a>
+      <a class="tile" href="marriage.html"><h3 data-es="Matrimonio">Marriage</h3><p data-es="Comuníquese con la parroquia antes de fijar una fecha.">Contact the parish before you set a date. Pre-nuptial paperwork is online.</p><span class="go" data-es="Planear su boda →">Plan your wedding →</span></a>
+      <a class="tile" href="anointing-of-the-sick.html"><h3 data-es="Unción de los Enfermos">Anointing of the Sick</h3><p data-es="Para enfermedad grave, cirugía o edad avanzada.">For serious illness, surgery or advanced age. Call the office any time.</p><span class="go" data-es="Solicitar una visita →">Request a visit →</span></a>
+      <a class="tile" href="adult-faith-formation.html"><h3 data-es="Hacerse católico (OCIA)">Becoming Catholic (OCIA)</h3><p data-es="Para adultos y adolescentes que exploran la fe.">For adults and teens exploring the faith or completing their sacraments.</p><span class="go" data-es="Más información →">Learn more →</span></a>
     </div>
   </div>
 </section>
@@ -398,10 +187,10 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
   <div class="wrap">
     <div class="sec-head"><div><p class="eyebrow" data-es="Familias y niños">Families &amp; children</p><h2 data-es="Crecer en la fe juntos">Growing in faith together</h2></div></div>
     <div class="grid4">
-      <a class="tile" href="https://stclarenj.org/family-faith-formation-program"><h3 data-es="Formación de Fe Familiar">Family Faith Formation</h3><p data-es="Catequesis para niños y sus familias.">Catechesis for children and the parents who teach them first.</p><span class="go" data-es="Inscribirse →">Register →</span></a>
-      <a class="tile" href="https://stclarenj.org/childrens-liturgy"><h3 data-es="Liturgia para Niños">Children's Liturgy</h3><p data-es="La Palabra dominical al nivel de los niños.">The Sunday readings at a child's level, during Mass.</p><span class="go" data-es="Ver horario →">See schedule →</span></a>
-      <a class="tile" href="https://stclarenj.org/youth-ministry"><h3 data-es="Jóvenes y VISION">Youth Ministry &amp; VISION</h3><p data-es="Para los grados 6 a 8 y preparatoria.">Middle school (Levels 6–8) and high school community.</p><span class="go" data-es="Participar →">Get involved →</span></a>
-      <a class="tile" href="https://stclarenj.org/gars"><h3>Guardian Angels Regional School</h3><p data-es="Nuestra escuela católica regional.">Our regional Catholic school, serving Pre-K through 8th grade.</p><span class="go" data-es="Visitar la escuela →">Visit the school →</span></a>
+      <a class="tile" href="family-faith-formation.html"><h3 data-es="Formación de Fe Familiar">Family Faith Formation</h3><p data-es="Catequesis para niños y sus familias.">Catechesis for children and the parents who teach them first.</p><span class="go" data-es="Inscribirse →">Register →</span></a>
+      <a class="tile" href="childrens-liturgy.html"><h3 data-es="Liturgia para Niños">Children's Liturgy</h3><p data-es="La Palabra dominical al nivel de los niños.">The Sunday readings at a child's level, during Mass.</p><span class="go" data-es="Ver horario →">See schedule →</span></a>
+      <a class="tile" href="youth-ministry.html"><h3 data-es="Jóvenes y VISION">Youth Ministry &amp; VISION</h3><p data-es="Para los grados 6 a 8 y preparatoria.">Middle school (Levels 6–8) and high school community.</p><span class="go" data-es="Participar →">Get involved →</span></a>
+      <a class="tile" href="gars.html"><h3>Guardian Angels Regional School</h3><p data-es="Nuestra escuela católica regional.">Our regional Catholic school, serving Pre-K through 8th grade.</p><span class="go" data-es="Visitar la escuela →">Visit the school →</span></a>
     </div>
   </div>
 </section>
@@ -410,9 +199,9 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow" data-es="Ministerios">Ministries</p><h2 data-es="Encuentre su lugar">Find your place</h2></div>
-      <input class="search" id="minSearch" type="search" placeholder="Search ministries…" aria-label="Search ministries">
+      <input class="search" type="search" placeholder="Search ministries…" data-ph-es="Buscar ministerios…" aria-label="Search ministries" data-filter="#minList" data-empty="#minEmpty">
     </div>
-    <div class="min-list" id="minList"></div>
+    <div class="min-list" id="minList"><a href="addiction-support.html">Addiction Support Ministry</a><a href="columbiettes.html">Columbiettes</a><a href="divine-deli.html">Divine Deli</a><a href="knights-of-columbus.html">Knights of Columbus</a><a href="legion-of-mary.html">Legion of Mary</a><a href="music-liturgy.html">Music &amp; Liturgy Ministry</a><a href="our-lady-of-guadalupe.html">Our Lady of Guadalupe Ministry</a><a href="simon-ministry.html">Simon Ministry</a><a href="parish-improvement-mission.html">Parish Improvement Mission</a><a href="stephen-ministry.html">Stephen Ministry</a><a href="st-alfio-society.html">St. Alfio Society</a><a href="st-vincent-de-paul.html">St. Vincent de Paul Society</a><a href="walking-with-moms.html">Walking with Moms in Need</a><a href="womens-community-group.html">Women's Community Group</a><a href="ministerio-hispano.html">Ministerio Hispano</a><a href="youth-ministry.html">Youth Ministry</a><a href="childrens-liturgy.html">Children's Liturgy</a><a href="volunteer.html">Volunteer</a></div>
     <p class="empty" id="minEmpty" hidden style="margin-top:14px">No ministry matches that search. Call the office at 856-467-0037 and we'll point you the right way.</p>
   </div>
 </section>
@@ -423,12 +212,12 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
     <p data-es="Apoyo confidencial para parroquianos y vecinos.">Confidential support for parishioners and neighbors alike. No registration required.</p></div>
     <a class="btn gold" href="tel:8564670037" data-es="Llamar a la oficina">Call the parish office</a></div>
     <div class="grid3">
-      <a class="tile" href="https://stclarenj.org/emergency-financial-assistance"><h3 data-es="Asistencia financiera de emergencia">Emergency financial assistance</h3><p data-es="Ayuda con servicios públicos y comida a través de San Vicente de Paúl.">Help with utility bills and food through the St. Vincent de Paul Society.</p><span class="go">→</span></a>
-      <a class="tile" href="https://stclarenj.org/grief-support"><h3 data-es="Apoyo en el duelo">Grief support</h3><p data-es="Acompañamiento después de una pérdida.">Companionship after a loss, including Simon and Stephen Ministry.</p><span class="go">→</span></a>
-      <a class="tile" href="https://stclarenj.org/stclare-addiction-support-ministry"><h3 data-es="Adicción y recuperación">Addiction &amp; recovery</h3><p data-es="Recursos sobre alcohol y opioides para personas y familias.">Alcohol and opioid resources for individuals and their families.</p><span class="go">→</span></a>
-      <a class="tile" href="https://stclarenj.org/domestic-violence"><h3 data-es="Violencia doméstica">Domestic violence</h3><p data-es="Información y recursos de seguridad.">Safety information and where to turn right now.</p><span class="go">→</span></a>
-      <a class="tile" href="https://stclarenj.org/family-counseling-and-support"><h3 data-es="Consejería familiar">Family counseling</h3><p data-es="Incluye apoyo en divorcio y separación.">Counseling referrals, plus divorce and separation support.</p><span class="go">→</span></a>
-      <a class="tile" href="https://stclarenj.org/walking-with-moms-in-need"><h3 data-es="Caminando con Madres Necesitadas">Walking with Moms in Need</h3><p data-es="Apoyo para madres embarazadas y con hijos pequeños.">Practical support for pregnant and parenting mothers.</p><span class="go">→</span></a>
+      <a class="tile" href="emergency-financial-assistance.html"><h3 data-es="Asistencia financiera de emergencia">Emergency financial assistance</h3><p data-es="Ayuda con servicios públicos y comida a través de San Vicente de Paúl.">Help with utility bills and food through the St. Vincent de Paul Society.</p><span class="go">→</span></a>
+      <a class="tile" href="grief-support.html"><h3 data-es="Apoyo en el duelo">Grief support</h3><p data-es="Acompañamiento después de una pérdida.">Companionship after a loss, including Simon and Stephen Ministry.</p><span class="go">→</span></a>
+      <a class="tile" href="addiction-support.html"><h3 data-es="Adicción y recuperación">Addiction &amp; recovery</h3><p data-es="Recursos sobre alcohol y opioides para personas y familias.">Alcohol and opioid resources for individuals and their families.</p><span class="go">→</span></a>
+      <a class="tile" href="domestic-violence.html"><h3 data-es="Violencia doméstica">Domestic violence</h3><p data-es="Información y recursos de seguridad.">Safety information and where to turn right now.</p><span class="go">→</span></a>
+      <a class="tile" href="family-counseling.html"><h3 data-es="Consejería familiar">Family counseling</h3><p data-es="Incluye apoyo en divorcio y separación.">Counseling referrals, plus divorce and separation support.</p><span class="go">→</span></a>
+      <a class="tile" href="walking-with-moms.html"><h3 data-es="Caminando con Madres Necesitadas">Walking with Moms in Need</h3><p data-es="Apoyo para madres embarazadas y con hijos pequeños.">Practical support for pregnant and parenting mothers.</p><span class="go">→</span></a>
     </div>
   </div>
 </section>
@@ -447,7 +236,7 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
           <li data-es="Sábado 6:00 PM Español (vigilia)">Saturday 6:00 PM Español (vigil)</li>
           <li data-es="Jueves, viernes 8:30 AM · Sábado 9:00 AM">Thu, Fri 8:30 AM · Sat 9:00 AM</li>
         </ul>
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=140+Broad+Street+Swedesboro+NJ+08085" data-es="Cómo llegar">Get directions</a>
+        <a class="btn" href="visit.html#st-joseph" data-es="Cómo llegar">Get directions</a>
       </div>
       <div class="card">
         <img class="ph" src="images/st-michael.jpg" alt="St. Michael Church, Gibbstown" loading="lazy" onerror="this.remove()">
@@ -459,178 +248,30 @@ footer .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding
           <li data-es="Domingo 9:30 AM">Sunday 9:30 AM</li>
           <li data-es="Lunes a miércoles 8:30 AM">Mon – Wed 8:30 AM</li>
         </ul>
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=320+Memorial+Avenue+Gibbstown+NJ+08027" data-es="Cómo llegar">Get directions</a>
+        <a class="btn" href="visit.html#st-michael" data-es="Cómo llegar">Get directions</a>
       </div>
     </div>
   </div>
 </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div>
-      <h3>St. Clare of Assisi Parish</h3>
-      <p>140 Broad Street, Swedesboro, NJ 08085<br>320 Memorial Avenue, Gibbstown, NJ 08027</p>
-      <p style="margin-top:10px"><a href="tel:8564670037" style="display:inline">856-467-0037</a> · <a href="mailto:info@stclarenj.org" style="display:inline">info@stclarenj.org</a></p>
-    </div>
-    <div>
-      <h3 data-es="La parroquia">The parish</h3>
-      <a href="https://stclarenj.org/parish-information" data-es="Información parroquial">Parish information</a>
-      <a href="https://stclarenj.org/staff" data-es="Equipo parroquial">Parish team</a>
-      <a href="https://stclarenj.org/finance-council" data-es="Consejo de finanzas">Finance council</a>
-      <a href="https://stclarenj.org/stclare-forms" data-es="Formularios">Forms</a>
-      <a href="https://stclarenj.org/diocesan-links" data-es="Diócesis de Camden">Diocese of Camden</a>
-    </div>
-    <div>
-      <h3 data-es="Conéctese">Connect</h3>
-      <a href="https://www.facebook.com/StClareParishSwedesboro">Facebook</a>
-      <a href="https://www.instagram.com/stclarenj/">Instagram</a>
-      <a href="https://stclarenj.org/online-giving" data-es="Donar en línea">Online giving</a>
-      <a href="https://stclarenj.org/ministerio-hispano">Ministerio Hispano</a>
-    </div>
-    <p class="fine">Redesign concept for stclarenj.org. Schedule and content taken from the live site on Nov 25, 2026; confirm times in the current bulletin. All links point to the existing parish pages.</p>
-  </div>
-</footer>
-
+<footer><div class="wrap">
+  <div><h3>St. Clare of Assisi Parish</h3><p>140 Broad Street, Swedesboro, NJ 08085<br>320 Memorial Avenue, Gibbstown, NJ 08027</p>
+    <p style="margin-top:10px"><a href="tel:8564670037" style="display:inline">856-467-0037</a> · <a href="mailto:info@stclarenj.org" style="display:inline">info@stclarenj.org</a></p>
+    <p style="margin-top:10px">Office: Mon–Thu 9 AM–4 PM · Fri 9 AM–12 PM</p></div>
+  <div><h3 data-es="La parroquia">The parish</h3>
+    <a href="about.html" data-es="Sobre la parroquia">About the parish</a><a href="staff.html" data-es="Equipo parroquial">Parish team</a><a href="visit.html" data-es="Cómo llegar">Visit &amp; directions</a>
+    <a href="bulletins.html" data-es="Boletín">Bulletin</a><a href="events.html" data-es="Eventos">Events</a><a href="finance-council.html" data-es="Consejo de finanzas">Finance council</a><a href="diocese.html" data-es="Diócesis de Camden">Diocese of Camden</a></div>
+  <div><h3 data-es="Conéctese">Connect</h3>
+    <a href="register.html" data-es="Únase a la parroquia">Join our parish</a><a href="give.html" data-es="Donar en línea">Online giving</a><a href="newsletters.html" data-es="Boletín semanal">Weekly newsletter</a>
+    <a href="prayer-intentions.html" data-es="Intenciones de oración">Prayer intentions</a><a href="espanol.html">Español</a>
+    <a href="https://www.facebook.com/StClareParishSwedesboro" target="_blank" rel="noopener">Facebook ↗</a><a href="https://www.instagram.com/stclarenj/" target="_blank" rel="noopener">Instagram ↗</a></div>
+  <p class="fine">Redesign concept for stclarenj.org. Content adapted from the live parish site on Nov 25, 2026; confirm times in the current bulletin. Everything is housed in this site. The few links marked ↗ go to outside organizations (hotlines, agencies, maps, the giving processor), never to the old parish site.</p>
+</div></footer>
 <nav class="dock" aria-label="Quick actions">
-  <a href="#mass"><span>🕯️</span><i data-es="Misas" style="font-style:normal">Mass</i></a>
-  <a href="#visit"><span>📍</span><i data-es="Llegar" style="font-style:normal">Directions</i></a>
-  <a href="tel:8564670037"><span>☎️</span><i data-es="Llamar" style="font-style:normal">Call</i></a>
-  <a href="https://stclarenj.org/online-giving"><span>💛</span><i data-es="Donar" style="font-style:normal">Give</i></a>
+  <a href="mass-times.html"><span>🕯️</span><i data-es="Misas">Mass</i></a><a href="visit.html"><span>📍</span><i data-es="Llegar">Directions</i></a>
+  <a href="tel:8564670037"><span>☎️</span><i data-es="Llamar">Call</i></a><a href="give.html"><span>💛</span><i data-es="Donar">Give</i></a>
 </nav>
-
-<script>
-(function(){
-  var SITES={S:{name:'St. Joseph Church',town:'Swedesboro',q:'140+Broad+Street+Swedesboro+NJ+08085'},
-             G:{name:'St. Michael Church',town:'Gibbstown',q:'320+Memorial+Avenue+Gibbstown+NJ+08027'}};
-  // d: 0=Sun … 6=Sat
-  var WEEK=[
-    {d:6,t:'16:30',s:'G',l:'en',k:'vigil'},{d:6,t:'18:00',s:'S',l:'es',k:'vigil'},
-    {d:0,t:'08:00',s:'S',l:'en'},{d:0,t:'09:30',s:'G',l:'en'},{d:0,t:'11:00',s:'S',l:'en'},{d:0,t:'12:30',s:'S',l:'es'},
-    {d:1,t:'08:30',s:'G',l:'en'},{d:2,t:'08:30',s:'G',l:'en'},{d:3,t:'08:30',s:'G',l:'en'},
-    {d:4,t:'08:30',s:'S',l:'en'},{d:5,t:'08:30',s:'S',l:'en'},{d:6,t:'09:00',s:'S',l:'en'}
-  ];
-  var SPECIAL={
-    '2026-11-26':{replace:true,n:['Thanksgiving','Acción de Gracias'],m:[{t:'08:30',s:'S',l:'en'},{t:'10:30',s:'S',l:'es'}]},
-    '2026-12-08':{replace:true,n:['Immaculate Conception','Inmaculada Concepción'],m:[{t:'08:30',s:'G',l:'en'},{t:'12:00',s:'S',l:'en'},{t:'18:00',s:'G',l:'en'},{t:'18:00',s:'S',l:'es'}]},
-    '2026-12-12':{n:['Our Lady of Guadalupe','Nuestra Señora de Guadalupe'],m:[{t:'19:30',s:'S',l:'bi'}]},
-    '2026-12-24':{n:['Christmas Eve','Nochebuena'],m:[{t:'16:00',s:'S',l:'en'},{t:'16:00',s:'G',l:'en'},{t:'17:30',s:'S',l:'en'},{t:'20:00',s:'G',l:'en'},{t:'20:00',s:'S',l:'es'},{t:'22:00',s:'S',l:'en'}]},
-    '2026-12-25':{replace:true,n:['Christmas Day','Navidad'],m:[{t:'08:00',s:'S',l:'en'},{t:'09:30',s:'G',l:'en'},{t:'11:00',s:'S',l:'en'},{t:'12:30',s:'S',l:'es'}]}
-  };
-  var DAYS={en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
-            es:['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']};
-  var T={en:{today:'Today',tomorrow:'Tomorrow',inn:'in',dir:'Directions',full:'Full schedule',none:'No Masses match this filter this week.',
-             sun:'Sunday Mass',wk:'Weekday Mass',sat:'Saturday morning',vigil:'Sat vigil',now:'Today',mw:'Mon – Wed',tf:'Thu – Fri'},
-         es:{today:'Hoy',tomorrow:'Mañana',inn:'en',dir:'Cómo llegar',full:'Horario completo',none:'No hay Misas con este filtro esta semana.',
-             sun:'Misa dominical',wk:'Misa diaria',sat:'Sábado por la mañana',vigil:'Vigilia sáb.',now:'Hoy',mw:'Lun – Mié',tf:'Jue – Vie'}};
-  var lang='en', nf='all', sf='all';
-  // Hero photos: any <img data-hero> that loads joins a slow crossfade; if none load, the placeholder stays.
-  (function(){
-    var ok=[],cur=0,cap=document.getElementById('heroCap');
-    function show(n){ok.forEach(function(im,i){im.classList.toggle('on',i===n);});cap.textContent=ok[n].dataset.cap;cur=n;}
-    function ready(im){ok.push(im);if(ok.length===1){document.getElementById('heroArt').style.display='none';show(0);}}
-    document.querySelectorAll('[data-hero]').forEach(function(im){
-      im.addEventListener('error',function(){im.remove();});
-      if(im.complete&&im.naturalWidth)ready(im);else im.addEventListener('load',function(){ready(im);});
-    });
-    if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches))
-      setInterval(function(){if(ok.length>1)show((cur+1)%ok.length);},7000);
-  })();
-  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
-
-  function nowNY(){
-    var p={};new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'})
-      .formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});
-    return {y:+p.year,m:+p.month,d:+p.day,min:(+p.hour)*60+(+p.minute)};
-  }
-  function mins(t){var a=t.split(':');return a[0]*60+ +a[1];}
-  function fmt(t){var a=t.split(':'),h=+a[0];return ((h+11)%12+1)+':'+a[1]+' '+(h<12?'AM':'PM');}
-  function match(m,f){return f==='all'||(f==='es'?(m.l==='es'||m.l==='bi'):m.s===f);}
-  function upcoming(f){
-    var n=nowNY(),out=[];
-    for(var o=0;o<9;o++){
-      var dt=new Date(Date.UTC(n.y,n.m-1,n.d+o)),dow=dt.getUTCDay();
-      var key=dt.toISOString().slice(0,10),sp=SPECIAL[key],list=[];
-      if(!sp||!sp.replace)WEEK.forEach(function(m){if(m.d===dow)list.push(m);});
-      if(sp)sp.m.forEach(function(m){list.push({t:m.t,s:m.s,l:m.l,sp:sp.n});});
-      list.forEach(function(m){
-        var away=o*1440+mins(m.t)-n.min;
-        if(away>-10&&match(m,f))out.push({m:m,away:away,o:o,dow:dow});
-      });
-    }
-    return out.sort(function(a,b){return a.away-b.away;});
-  }
-  function dayLabel(u){return u.o===0?T[lang].today:u.o===1?T[lang].tomorrow:DAYS[lang][u.dow];}
-  function tags(m){var s='';if(m.l==='es')s+='<span class="tag">Español</span>';if(m.l==='bi')s+='<span class="tag sp">Bilingual</span>';
-    if(m.sp)s+='<span class="tag sp">'+m.sp[lang==='es'?1:0]+'</span>';return s;}
-  function countdown(a){if(a<=0)return lang==='es'?'comenzando ahora':'starting now';
-    var h=Math.floor(a/60),m=a%60;if(h>=24){var d=Math.floor(h/24);return T[lang].inn+' '+d+(lang==='es'?(d>1?' días':' día'):(d>1?' days':' day'));}
-    return T[lang].inn+' '+(h?h+' h ':'')+m+' min';}
-
-  function renderNext(){
-    var u=upcoming(nf),body=document.getElementById('nextBody'),ul=document.getElementById('upnext');
-    if(!u.length){body.innerHTML='<p style="padding:14px 0">'+T[lang].none+'</p>';ul.innerHTML='';return;}
-    var x=u[0],st=SITES[x.m.s];
-    body.innerHTML='<div class="next-when">'+dayLabel(x)+' · '+countdown(x.away)+'</div>'+
-      '<div class="next-time">'+fmt(x.m.t)+'</div>'+
-      '<div class="next-where">'+st.name+', '+st.town+tags(x.m)+'</div>'+
-      '<div class="next-actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&query='+st.q+'">'+T[lang].dir+'</a>'+
-      '<a class="btn ghost" href="#mass">'+T[lang].full+'</a></div>';
-    ul.innerHTML=u.slice(1,5).map(function(y){return '<li><span><b>'+dayLabel(y)+' '+fmt(y.m.t)+'</b>'+tags(y.m)+'</span><span>'+SITES[y.m.s].town+'</span></li>';}).join('');
-  }
-  function row(time,m,note){return '<div class="row"><time>'+time+'</time><span>'+SITES[m.s].name+', '+SITES[m.s].town+tags(m)+'</span><span class="w">'+(note||'')+'</span></div>';}
-  function renderWeek(){
-    var today=new Date(Date.UTC.apply(null,(function(n){return[n.y,n.m-1,n.d];})(nowNY()))).getUTCDay();
-    var L=T[lang],f=function(m){return match(m,sf);},h='';
-    function grp(title,isToday,rows){h+='<div class="daygrp"><h3>'+title+(isToday?' <span class="today">'+L.now+'</span>':'')+'</h3>'+(rows||'<p class="empty">—</p>')+'</div>';}
-    var sun=WEEK.filter(function(m){return (m.k==='vigil'||m.d===0)&&f(m);}).map(function(m){return row(fmt(m.t),m,m.k==='vigil'?L.vigil:DAYS[lang][0]);}).join('');
-    var mw=WEEK.filter(function(m){return m.d===1&&f(m);}).map(function(m){return row(fmt(m.t),m,L.mw);}).join('');
-    var tf=WEEK.filter(function(m){return m.d===4&&f(m);}).map(function(m){return row(fmt(m.t),m,L.tf);}).join('');
-    var sat=WEEK.filter(function(m){return m.d===6&&!m.k&&f(m);}).map(function(m){return row(fmt(m.t),m,DAYS[lang][6]);}).join('');
-    grp(L.sun,today===0,sun);grp(L.wk,today>=1&&today<=5,mw+tf);grp(L.sat,today===6,sat);
-    document.getElementById('weekly').innerHTML=h;
-  }
-  function press(sel,attr,val){document.querySelectorAll(sel).forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute(attr)===val);});}
-  document.querySelectorAll('[data-f]').forEach(function(b){b.onclick=function(){nf=b.dataset.f;store('sc-nf',nf);press('[data-f]','data-f',nf);renderNext();};});
-  document.querySelectorAll('[data-s]').forEach(function(b){b.onclick=function(){sf=b.dataset.s;press('[data-s]','data-s',sf);renderWeek();};});
-
-  // ministries
-  var MIN=[['Addiction Support Ministry','stclare-addiction-support-ministry'],['Columbiettes','columbiettes'],['Divine Deli','divine-deli'],
-    ['Knights of Columbus','knights-of-columbus'],['Legion of Mary','legion-of-mary'],['Music & Liturgy Ministry','st-clare-music-liturgy-ministry'],
-    ['Our Lady of Guadalupe Ministry','our-lady-of-guadalupe-ministry'],['Simon Ministry','st-clare-simon-ministry'],
-    ['Parish Improvement Mission','parish-improvement-mission'],['Stephen Ministry','stephen-ministry'],['St. Alfio Society','st-alfio-society'],
-    ['St. Vincent de Paul Society','st-vincent-de-paul-society'],['Walking with Moms in Need','walking-with-moms-in-need'],
-    ['Women\'s Community Group','womens-community-group'],['Ministerio Hispano','ministerio-hispano'],['Youth Ministry','youth-ministry'],
-    ['Adult Faith Formation','adult-faith-formation'],['Children\'s Liturgy','childrens-liturgy']];
-  var ml=document.getElementById('minList');
-  ml.innerHTML=MIN.map(function(m){return '<a href="https://stclarenj.org/'+m[1]+'">'+m[0].replace('&','&amp;')+'</a>';}).join('');
-  document.getElementById('minSearch').addEventListener('input',function(e){
-    var q=e.target.value.trim().toLowerCase(),n=0;
-    ml.querySelectorAll('a').forEach(function(a){var ok=a.textContent.toLowerCase().indexOf(q)>-1;a.hidden=!ok;if(ok)n++;});
-    document.getElementById('minEmpty').hidden=n>0;
-  });
-
-  // language
-  document.querySelectorAll('[data-es]').forEach(function(el){el.dataset.en=el.innerHTML;});
-  function setLang(l){
-    lang=l;store('sc-lang',l);document.documentElement.lang=l;
-    document.querySelectorAll('[data-es]').forEach(function(el){el.innerHTML=l==='es'?el.dataset.es:el.dataset.en;});
-    document.getElementById('en').setAttribute('aria-pressed',l==='en');document.getElementById('es').setAttribute('aria-pressed',l==='es');
-    document.getElementById('minSearch').placeholder=l==='es'?'Buscar ministerios…':'Search ministries…';
-    renderNext();renderWeek();
-  }
-  document.getElementById('en').onclick=function(){setLang('en');};
-  document.getElementById('es').onclick=function(){setLang('es');};
-
-  // mobile menu
-  var mb=document.getElementById('menuBtn'),nav=document.getElementById('nav');
-  mb.onclick=function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);};
-  nav.addEventListener('click',function(){nav.classList.remove('open');mb.setAttribute('aria-expanded',false);});
-
-  var s=store('sc-nf');if(s&&/^(all|G|S|es)$/.test(s)){nf=s;press('[data-f]','data-f',nf);}
-  setLang(store('sc-lang')==='es'?'es':'en');
-  setInterval(renderNext,60000);
-})();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>
